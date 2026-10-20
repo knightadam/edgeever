@@ -62,5 +62,8 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Build web assets and the Worker bundle
+        run: bun run build:cloudflare
+
       - name: Migrate D1, deploy the Worker, verify it live
-        run: bun run deploy:ci
+        run: bun run deploy:cloudflare-builds
